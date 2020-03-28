@@ -6,7 +6,6 @@
 			"image": "{{ user `image` }}",
 			"commit": "true",
 			"changes": [
-				"USER www-data",
 				"WORKDIR /var/www",
 				"EXPOSE 80",
 				"LABEL version=1.0",
