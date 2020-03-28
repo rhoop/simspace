@@ -4,7 +4,14 @@
 		{
 			"type": "docker",
 			"image": "{{ user `image` }}",
-			"commit": "true"
+			"commit": "true",
+			"changes": [
+				"USER www-data",
+				"WORKDIR /var/www",
+				"EXPOSE 80",
+				"LABEL version=1.0",
+				"CMD [\"nginx\", \"-g\", \"daemon off;\"]"
+			]
 		}
 	],
 	"post-processors": [

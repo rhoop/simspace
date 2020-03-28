@@ -3,7 +3,7 @@
 
 if [ -f /etc/centos-release ]; then
 	yum install epel-release policycoreutils-python-utils systemd -y
-    yum -y install ansible
+    yum -y install ansible systemd
 else
 
 	apt-get update
