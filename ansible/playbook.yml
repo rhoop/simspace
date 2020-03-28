@@ -16,7 +16,7 @@
 
     - name: add conf file
       copy:
-        src: default.conf
+        src: files/default.conf
         dest: /etc/nginx/sites-enabled/default
         owner: www-data
         group: www-data
@@ -26,7 +26,7 @@
 
     - name: add conf file
       copy:
-        src: nginx.conf
+        src: files/nginx.conf
         dest: /etc/nginx/sites-enabled/default
         owner: www-data
         group: www-data
