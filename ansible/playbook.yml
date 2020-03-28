@@ -12,4 +12,12 @@
         name: nginx
         state: started
         enabled: yes
+      when: ansible_distribution == 'Ubuntu'
 
+    - name: start nginx
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+        daemon_reload: yes
+      when: ansible_distribution == 'CentOS'
