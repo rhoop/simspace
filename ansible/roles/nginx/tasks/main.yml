@@ -12,7 +12,7 @@
 
 - name: add conf file
   copy:
-    src: '{{ playbook_dir }}/files/default.conf'
+    src: files/default.conf
     dest: /etc/nginx/sites-enabled/default
     owner: www-data
     group: www-data
@@ -22,8 +22,8 @@
 
 - name: add conf file
   copy:
-    src: '{{ playbook_dir }}files/nginx.conf'
-    dest: /etc/nginx/sites-enabled/default
+    src: files/nginx.conf
+    dest: /etc/nginx/nginx.conf
     owner: www-data
     group: www-data
     mode: '0755'
