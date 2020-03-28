@@ -19,7 +19,7 @@
 			{
 				"type": "docker-tag",
 				"repository": "{{user `dockerhub_push_repository`}}",
-				"tag": "{{ timestamp }}"
+				"tag": "latest"
 			},
 			{
 				"type": "docker-push",
