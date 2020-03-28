@@ -1,5 +1,5 @@
 {
-	"_comment": "Build with `packer build ubuntu.json`",
+	"_comment": "Sims Test",
 	"builders": [
 		{
 			"type": "docker",
@@ -18,7 +18,7 @@
 				"type": "docker-push",
 				"login": true,
 				"login_username": "simspacetest",
-				"login_password": "wrhcmr0284!"
+				"login_password": "2ez24get!"
 			}
 		]
 	],
