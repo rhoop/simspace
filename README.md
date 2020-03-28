@@ -16,6 +16,11 @@ Please have your code committed to GitHub by Saturday morning.
 
 ## Running
 ```
-Ubuntu: packer build -var-file=ubuntu.json boxes.json
-CentOS: packer build -var-file=centos.json boxes.json
+Ubuntu:
+packer build -var-file=ubuntu.json boxes.json
+docker run -v /tmp/test_html:/html -p 8888:80 docker.io/simspacetest/ubuntu-nginx
+
+CentOS:
+packer build -var-file=centos.json boxes.json
+docker run -v /tmp/test_html:/html -p 8888:80 docker.io/simspacetest/centos-nginx
 ```
