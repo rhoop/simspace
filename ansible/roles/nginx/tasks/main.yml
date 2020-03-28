@@ -9,6 +9,7 @@
     owner: www-data
     group: www-data
     mode: '0755'
+  when: ansible_distribution == 'Ubuntu'
 
 - name: add conf file
   copy:
@@ -24,8 +25,8 @@
   copy:
     src: files/nginx.conf
     dest: /etc/nginx/nginx.conf
-    owner: www-data
-    group: www-data
+    owner: nginx
+    group: nginx
     mode: '0755'
   when: ansible_distribution == 'CentOS'
 
@@ -36,3 +37,13 @@
     owner: www-data
     group: www-data
     mode: '0755'
+  when: ansible_distribution == 'Ubuntu'
+
+- name: add /html dir
+  file:
+    state: directory
+    path: /html
+    owner: nginx
+    group: nginx
+    mode: '0755'
+  when: ansible_distribution == 'CentOS'
