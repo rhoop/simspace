@@ -7,3 +7,10 @@
         name: nginx
         state: present
 
+    - name: change perms
+      file:
+        path: /var/lib/nginx
+        owner: www-data
+        group: www-data
+        mode: '0755'
+
