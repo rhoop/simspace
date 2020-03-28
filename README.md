@@ -14,3 +14,8 @@ note: SSL is not required for this homework and should be disabled in your nginx
 
 Please have your code committed to GitHub by Saturday morning.
 
+## Running
+```
+Ubuntu: packer build -var-file=ubuntu.json boxes.json
+CentOS: packer build -var-file=centos.json boxes.json
+```
