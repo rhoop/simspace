@@ -1,0 +1,43 @@
+{
+	"_comment": "Build with `packer build ubuntu.json`",
+	"builders": [
+		{
+			"type": "docker",
+			"image": "{{ user `image` }}",
+			"commit": "true"
+		}
+	],
+	"post-processors": [
+		[
+			{
+				"type": "docker-tag",
+				"repository": "{{user `dockerhub_push_repository`}}",
+				"tag": "{{ timestamp }}"
+			},
+			{
+				"type": "docker-push",
+				"login": true,
+				"login_username": "simspacetest",
+				"login_password": "wrhcmr0284!"
+			}
+		]
+	],
+	"provisioners": [
+		{
+			"execute_command": "echo '{{user `ssh_password`}}'|{{.Vars}} {{.Path}}",
+			"expect_disconnect": true,
+			"scripts": [
+				"script/install-ansible.sh"
+			],
+			"type": "shell"
+		},
+		{
+			"playbook_dir": "ansible",
+			"playbook_file": "ansible/playbook.yml",
+			"type": "ansible-local",
+			"extra_arguments": "-e 'packer_hosts=all'",
+			"command": "echo '{{user `pass`}}' | ansible-playbook",
+			"inventory_file": "ansible/inventory.ini"
+		}
+	]
+}

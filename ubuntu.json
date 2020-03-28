@@ -1,0 +1,4 @@
+{
+	"image": "ubuntu:latest",
+	"dockerhub_push_repository": "simspacetest/ubuntu-nginx"
+}

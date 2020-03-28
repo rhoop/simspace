@@ -1,0 +1,4 @@
+{
+	"image": "centos:latest",
+	"dockerhub_push_repository": "simspacetest/centos-nginx"
+}
