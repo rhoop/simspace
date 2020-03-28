@@ -1,42 +1,5 @@
 - name: score 100 on this test
   hosts: localhost
   become: yes
-  tasks:
-    - name: install nginx
-      package:
-        name: nginx
-        state: present
-
-    - name: change perms
-      file:
-        path: /var/lib/nginx
-        owner: www-data
-        group: www-data
-        mode: '0755'
-
-    - name: add conf file
-      copy:
-        src: '{{ playbook_dir }}/files/default.conf'
-        dest: /etc/nginx/sites-enabled/default
-        owner: www-data
-        group: www-data
-        mode: '0755'
-      when: ansible_distribution == 'Ubuntu'
-
-
-    - name: add conf file
-      copy:
-        src: '{{ playbook_dir }}files/nginx.conf'
-        dest: /etc/nginx/sites-enabled/default
-        owner: www-data
-        group: www-data
-        mode: '0755'
-      when: ansible_distribution == 'CentOS'
-
-    - name: add /html dir
-      file:
-        state: directory
-        path: /html
-        owner: www-data
-        group: www-data
-        mode: '0755'
+  roles:
+    - nginx
