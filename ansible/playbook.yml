@@ -14,3 +14,29 @@
         group: www-data
         mode: '0755'
 
+    - name: add conf file
+      copy:
+        src: default.conf
+        dest: /etc/nginx/sites-enabled/default
+        owner: www-data
+        group: www-data
+        mode: '0755'
+      when: ansible_distribution == 'Ubuntu'
+
+
+    - name: add conf file
+      copy:
+        src: nginx.conf
+        dest: /etc/nginx/sites-enabled/default
+        owner: www-data
+        group: www-data
+        mode: '0755'
+      when: ansible_distribution == 'CentOS'
+
+    - name: add /html dir
+      file:
+        state: directory
+        path: /html
+        owner: www-data
+        group: www-data
+        mode: '0755'
